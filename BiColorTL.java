@@ -1,6 +1,6 @@
 package application;
 
-public class BiColorTL extends TrafficLight{
+public class BiColorTL extends TrafficLight {
     //Constructors
 
     public BiColorTL() {

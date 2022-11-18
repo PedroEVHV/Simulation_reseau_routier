@@ -1,5 +1,9 @@
 package application;
 
+import application.Application;
+import application.RoadElement;
+import application.State;
+
 public class Vehicle {
     private final int id;
     private State currState;

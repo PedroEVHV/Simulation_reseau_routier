@@ -1,6 +1,6 @@
 package application;
 
-public abstract class TrafficLight extends Semaphore{
+public abstract class TrafficLight extends Semaphore {
     private int color;
     private final int nbColors;
 

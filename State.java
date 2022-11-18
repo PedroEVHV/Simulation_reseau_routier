@@ -57,7 +57,7 @@ public class State {
 
     @Override
     public String toString() {
-        String output = "Etat --- vitesse: " + this.id + " --- Etat: " + this.currState;
+        String output = "Etat --- vitesse: " + this.speed + " --- position: " + this.pos;
         return output;
     }
 }
