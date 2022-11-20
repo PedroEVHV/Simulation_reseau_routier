@@ -1,5 +1,7 @@
 package application;
 
+import application.exceptions.RoadNotFoundException;
+
 import java.util.ArrayList;
 
 public class Junction {
@@ -31,6 +33,20 @@ public class Junction {
 
         this.nbLinks = nbLinks;
         this.linkedElems =roadElements;
+    }
+
+    //Methods
+
+    public void addRoad(RoadElement r) {
+        this.linkedElems.add(r);
+    }
+
+    public void removeRoad(RoadElement r) throws RoadNotFoundException {
+        if(this.linkedElems.contains(r)) {
+            this.linkedElems.remove(r);
+        } else {
+            throw new RoadNotFoundException("Road not found!");
+        }
     }
 
     //Getters and Setters

@@ -1,5 +1,8 @@
 package application;
 
+import application.exceptions.RoadNotFoundException;
+import application.exceptions.SemaphoreNotFoundException;
+
 import java.util.ArrayList;
 
 public class RoadElement {
@@ -54,6 +57,17 @@ public class RoadElement {
 
     //Methods
 
+    public void addSemaphore(Semaphore s) {
+        this.semaphores.add(s);
+    }
+
+    public void removeSemaphore(Semaphore s) throws SemaphoreNotFoundException {
+        if(this.semaphores.contains(s)) {
+            this.semaphores.remove(s);
+        } else {
+            throw new SemaphoreNotFoundException("Road not found!");
+        }
+    }
 
     //Getters and setters
 

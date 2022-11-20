@@ -31,6 +31,30 @@ public class Vehicle {
         this.currState = new State(r, pos, speed);
     }
 
+    //Methods
+
+    /**
+     * Changes position on current road element. Does not change road elements, that is implemented in checkPos().
+     */
+    public void move() {
+        if(this.currState.getPos() < 0) {
+            this.currState.setPos(this.currState.getPos()-1);
+        } else {
+            this.currState.setPos(this.currState.getPos()+1);
+        }
+    }
+
+
+    /**
+     * Checks if the vehicle position is valid, i.e. if there is no collision, if the position after movement is in the same road element (if not, change road),
+     * if the vehicle is allowed to move due to traffic lights, etc...
+     * If all criteria are met, it will call the move function.
+     */
+    public void checkPos() {
+        //TODO
+    }
+
+
     //Getters and setters
 
     public int getId() {
