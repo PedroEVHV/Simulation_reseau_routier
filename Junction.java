@@ -12,38 +12,26 @@ public class Junction {
     //Constructors
 
     public Junction() {
-        this.id = Application.idCounter;
-        Application.idCounter++;
+        this(new ArrayList<>());
+    }
 
+    public Junction(ArrayList<RoadElement> roadElements) {
+        this.id = Application.idCounter++;
         this.nbLinks = 0;
-        this.linkedElems = new ArrayList<>();
-    }
-
-    public Junction(Junction junction) {
-        this.id = Application.idCounter;
-        Application.idCounter++;
-
-        this.nbLinks = junction.nbLinks;
-        this.linkedElems = new ArrayList<>();
-    }
-
-    public Junction(int nbLinks, ArrayList<RoadElement> roadElements) {
-        this.id = Application.idCounter;
-        Application.idCounter++;
-
-        this.nbLinks = nbLinks;
-        this.linkedElems =roadElements;
+        this.linkedElems = roadElements;
     }
 
     //Methods
 
     public void addRoad(RoadElement r) {
         this.linkedElems.add(r);
+        ++nbLinks;
     }
 
     public void removeRoad(RoadElement r) throws RoadNotFoundException {
         if(this.linkedElems.contains(r)) {
             this.linkedElems.remove(r);
+            this.nbLinks--;
         } else {
             throw new RoadNotFoundException("Road not found!");
         }
@@ -63,21 +51,13 @@ public class Junction {
         return nbLinks;
     }
 
-    public void setLinkedElems(ArrayList<RoadElement> linkedElems) {
-        this.linkedElems = linkedElems;
-    }
-
-    public void setNbLinks(int nbLinks) {
-        this.nbLinks = nbLinks;
-    }
-
     //Display
 
     @Override
     public String toString() {
-        String output = "Jonction --- id: " + this.id + " --- connections: " + this.nbLinks + "\nroutes: \n";
+        String output = "Jonction --- id: " + this.id + " --- connections: " + this.nbLinks + " --- routes:\t";
         for (RoadElement linkedElem : this.linkedElems) {
-            output += linkedElem.toString() + "\n --- \n";
+            output += linkedElem.getId() + "\t";
         }
         return output;
     }
