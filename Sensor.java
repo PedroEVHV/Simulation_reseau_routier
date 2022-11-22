@@ -1,31 +1,34 @@
 package application;
 
+import application.exceptions.SemaphoreNotFoundException;
+import application.exceptions.SensorNotFoundException;
+
 import java.util.ArrayList;
 
 public abstract class Sensor {
     private final int id;
     private RoadElement road;
     private int pos;
+
+    private Boolean direction;
     private ArrayList<Semaphore> semaphores;
 
     //Constructors
 
     public Sensor () {
-        this.id = Application.idCounter;
-        Application.idCounter++;
-
+        this.id = Application.idCounter++;
         this.road = null;
         this.pos = 0;
-        this.semaphores = new ArrayList<>();
+        this.semaphores = new ArrayList<Semaphore>();
+        this.direction = true;
     }
 
-    public Sensor (RoadElement r, int p, ArrayList<Semaphore> s) {
-        this.id = Application.idCounter;
-        Application.idCounter++;
-
+    public Sensor (RoadElement r, int p, Boolean direction, ArrayList<Semaphore> s) {
+        this.id = Application.idCounter++;
         this.road = r;
         this.pos = p;
         this.semaphores = s;
+        this.direction = direction;
     }
 
     //Getters and Setters
@@ -42,11 +45,24 @@ public abstract class Sensor {
         return pos;
     }
 
+    public Boolean getDirection() {
+        return this.direction;
+    }
+
     public ArrayList<Semaphore> getSemaphores() {
-        return semaphores;
+        return this.semaphores;
     }
 
     public void setRoad(RoadElement road) {
+        if(this.road != null) {
+            try {
+                this.road.removeSensor(this);
+            }
+            catch (SensorNotFoundException e) {
+                System.err.println("This should never happen.");
+            }
+        }
+        road.addSensor(this);
         this.road = road;
     }
 
@@ -58,6 +74,18 @@ public abstract class Sensor {
         this.semaphores = semaphores;
     }
 
+    // Methods
 
+    public void addSemaphore(Semaphore s) {
+        this.semaphores.add(s);
+    }
+
+    public void removeSemaphore(Semaphore s) throws SemaphoreNotFoundException {
+        if(this.semaphores.contains(s)) {
+            this.semaphores.remove(s);
+        } else {
+            throw new SemaphoreNotFoundException("Semaphore not found !");
+        }
+    }
 
 }

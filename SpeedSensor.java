@@ -12,12 +12,12 @@ public class SpeedSensor extends Sensor{
     }
 
     public SpeedSensor(SpeedSensor s) {
-        super(s.getRoad(), s.getPos(), s.getSemaphores());
+        super(s.getRoad(), s.getPos(), s.getDirection(), s.getSemaphores());
         this.speedTrigger = s.speedTrigger;
     }
 
-    public SpeedSensor(int s, RoadElement r, int p, ArrayList<Semaphore> semaphores) {
-        super(r, p, semaphores);
+    public SpeedSensor(int s, RoadElement r, int p, Boolean direction, ArrayList<Semaphore> semaphores) {
+        super(r, p, direction, semaphores);
         this.speedTrigger = s;
     }
 

@@ -3,6 +3,7 @@ package application;
 import application.exceptions.JunctionException;
 import application.exceptions.RoadNotFoundException;
 import application.exceptions.SemaphoreNotFoundException;
+import application.exceptions.SensorNotFoundException;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,8 @@ public class RoadElement {
 
     private ArrayList<Semaphore> semaphores;
 
+    private ArrayList<Sensor> sensors;
+
     //Constructors
 
     public RoadElement() {
@@ -25,13 +28,14 @@ public class RoadElement {
         this.junctionB = null;
         this.speedLimit = 1;
         this.semaphores = new ArrayList<Semaphore> ();
+        this.sensors = new ArrayList<Sensor>();
     }
 
     public RoadElement(int size, int speedLimit, Junction a, Junction b) {
-        this(size, speedLimit, a, b, new ArrayList<>());
+        this(size, speedLimit, a, b, new ArrayList<Semaphore>(), new ArrayList<Sensor>());
     }
 
-    public RoadElement(int size, int speedLimit, Junction a, Junction b, ArrayList<Semaphore> s) {
+    public RoadElement(int size, int speedLimit, Junction a, Junction b, ArrayList<Semaphore> s, ArrayList<Sensor> ss) {
         this.id = Application.idCounter++;
         try {
             this.setJunctionA(a);
@@ -43,6 +47,7 @@ public class RoadElement {
         this.size = size;
         this.speedLimit = speedLimit;
         this.semaphores = s;
+        this.sensors = ss;
     }
 
     //Methods
@@ -55,7 +60,19 @@ public class RoadElement {
         if(this.semaphores.contains(s)) {
             this.semaphores.remove(s);
         } else {
-            throw new SemaphoreNotFoundException("Road not found!");
+            throw new SemaphoreNotFoundException("Semaphore not found !");
+        }
+    }
+
+    public void addSensor(Sensor s) {
+        this.sensors.add(s);
+    }
+
+    public void removeSensor(Sensor s) throws SensorNotFoundException {
+        if(this.sensors.contains(s)) {
+            this.sensors.remove(s);
+        } else {
+            throw new SensorNotFoundException("Sensor not found !");
         }
     }
 
