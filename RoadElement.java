@@ -22,32 +22,20 @@ public class RoadElement {
     //Constructors
 
     public RoadElement() {
-        this.id = Application.idCounter++;
-        this.size = 1;
-        this.junctionA = null;
-        this.junctionB = null;
-        this.speedLimit = 1;
-        this.semaphores = new ArrayList<Semaphore> ();
-        this.sensors = new ArrayList<Sensor>();
+        this(10, 50, new Junction(), new Junction());
+    }
+
+    public RoadElement(int size, int speedLimit) {
+        this(size, speedLimit, new Junction(), new Junction());
     }
 
     public RoadElement(int size, int speedLimit, Junction a, Junction b) {
-        this(size, speedLimit, a, b, new ArrayList<Semaphore>(), new ArrayList<Sensor>());
-    }
-
-    public RoadElement(int size, int speedLimit, Junction a, Junction b, ArrayList<Semaphore> s, ArrayList<Sensor> ss) {
-        this.id = Application.idCounter++;
-        try {
-            this.setJunctionA(a);
-            this.setJunctionB(b);
-        }
-        catch (JunctionException e) {
-            System.err.println("Error while creating the road.");
-        }
         this.size = size;
         this.speedLimit = speedLimit;
-        this.semaphores = s;
-        this.sensors = ss;
+        this.junctionA = a;
+        a.addRoad(this);
+        this.junctionB = b;
+        b.addRoad(this);
     }
 
     //Methods
@@ -98,18 +86,24 @@ public class RoadElement {
         return junctionB;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setJunctionA(Junction junctionA) throws JunctionException {
-        if(this.junctionA!=null) throw new JunctionException("There is already a junctionA for this road.");
+        if(this.junctionA!=null) try {
+            junctionA.removeRoad(this);
+        }
+        catch (RoadNotFoundException e) { // This should never happen.
+            throw new JunctionException("The junctionA of this road does not contains this road in its linkedElements\nCritical error.");
+        }
         if(!junctionA.getLinkedElems().contains(this)) junctionA.addRoad(this);
         this.junctionA = junctionA;
     }
 
     public void setJunctionB(Junction junctionB) throws JunctionException {
-        if(this.junctionB!=null) throw new JunctionException("There is already a junctionB for this road.");
+        if(this.junctionB!=null) try {
+            junctionB.removeRoad(this);
+        }
+        catch (RoadNotFoundException e) { // This should never happen.
+            throw new JunctionException("The junctionB of this road does not contains this road in its linkedElements\nCritical error.");
+        }
         if(!junctionB.getLinkedElems().contains(this)) junctionB.addRoad(this);
         this.junctionB = junctionB;
     }
