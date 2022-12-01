@@ -97,6 +97,10 @@ public class RoadElement {
         return junctionB;
     }
 
+    public ArrayList<Semaphore> getSemaphores() {
+        return semaphores;
+    }
+
     public void setJunctionA(Junction junctionA) throws JunctionException {
         if(this.junctionA!=null) try {
             junctionA.removeRoad(this);

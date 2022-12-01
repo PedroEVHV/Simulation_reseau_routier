@@ -1,5 +1,8 @@
 package application;
 
+import java.util.ArrayList;
+
+@FunctionalInterface
 public interface RegulateInterface {
-    void regulate();
+    void regulate(Vehicle vehicle);
 }

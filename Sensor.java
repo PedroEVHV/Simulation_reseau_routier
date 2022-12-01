@@ -9,7 +9,7 @@ public abstract class Sensor {
     private final int id;
     private RoadElement road;
     private int pos;
-
+    protected RegulateInterface regulateInterface;
     private Boolean direction;
     private ArrayList<Semaphore> semaphores;
 

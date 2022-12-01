@@ -37,11 +37,7 @@ public class Vehicle {
      * Changes position on current road element. Does not change road elements, that is implemented in checkPos().
      */
     public void move() {
-        if(this.currState.getPos() < 0) {
-            this.currState.setPos(this.currState.getPos()-1);
-        } else {
-            this.currState.setPos(this.currState.getPos()+1);
-        }
+
     }
 
 
@@ -51,7 +47,10 @@ public class Vehicle {
      * If all criteria are met, it will call the move function.
      */
     public void checkPos() {
-        //TODO
+        for(int i = 0; i < this.getCurrState().getRoad().getSemaphores().size(); i++) {
+
+            this.getCurrState().getRoad().getSemaphores().get(i).regulElem.regulate(this);
+        }
     }
 
 

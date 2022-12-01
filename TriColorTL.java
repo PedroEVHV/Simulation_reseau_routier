@@ -4,6 +4,7 @@ public class TriColorTL extends TrafficLight{
 
     //Constructors
 
+
     public TriColorTL(RoadElement r) {
         super(r, "orange", true); //The Traffic Light is initialized at 0 by default
     }

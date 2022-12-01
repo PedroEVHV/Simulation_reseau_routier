@@ -5,8 +5,8 @@ import application.exceptions.SemaphoreNotFoundException;
 public abstract class Semaphore {
     private final int id;
     private RoadElement road;
-    private boolean direction; // If true, only the vehicles going towards the JunctionA can see this semaphore, and vice-versa.
-
+    private boolean direction;
+    protected RegulateInterface regulElem;
 
     //Constructors
 
