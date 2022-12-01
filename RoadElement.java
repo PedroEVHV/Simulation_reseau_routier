@@ -8,7 +8,6 @@ import application.exceptions.SensorNotFoundException;
 import java.util.ArrayList;
 
 public class RoadElement {
-
     private final int id;
     private int size;
     private Junction junctionA;

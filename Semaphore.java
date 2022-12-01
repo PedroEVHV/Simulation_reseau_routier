@@ -10,15 +10,15 @@ public abstract class Semaphore {
 
     //Constructors
 
-    public Semaphore(RoadElement r) {
-        this(r,true);
+    public Semaphore(RoadElement road) {
+        this(road,true);
     }
 
-    public Semaphore(RoadElement r, boolean d) {
+    public Semaphore(RoadElement road, boolean direction) {
         this.id = Application.idCounter++;
-        this.road = r;
-        this.direction = d;
-        r.addSemaphore(this);
+        this.road = road;
+        this.direction = direction;
+        road.addSemaphore(this);
     }
 
 

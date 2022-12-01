@@ -1,40 +1,61 @@
 package application;
 
 public abstract class TrafficLight extends Semaphore {
-    private int color;
-    private final int nbColors;
+    private String color;
+    private boolean blinking;
+
 
     //Constructors
 
-    public TrafficLight() {
-        super();
-        this.color = 0;
-        this.nbColors = 3; //By default, Traffic Lights will be tri-colored
+    public TrafficLight(RoadElement r) {
+        this(r, "orange", true);
     }
 
-    public TrafficLight(TrafficLight t) {
-        super();
-        this.color = t.color;
-        this.nbColors = t.nbColors;
+    public TrafficLight(RoadElement r, boolean direction) {
+        this(r, direction,  "orange", true);
     }
 
-    public TrafficLight(int color, int nbColors) {
-        super();
+    public TrafficLight(RoadElement r, String color) {
+        this(r, color, false);
+    }
+
+    public TrafficLight(RoadElement r, boolean direction, String color) {
+        this(r, direction, color, false);
+    }
+
+    public TrafficLight(RoadElement r, String color, boolean blinking) {
+        super(r);
         this.color = color;
-        this.nbColors = nbColors;
+        this.blinking = blinking;
     }
+
+    public TrafficLight(RoadElement r, boolean direction, String color, boolean blinking) {
+        super(r,direction);
+        this.color = color;
+        this.blinking = blinking;
+    }
+
+
+    //Methods
+
+    public abstract void nextLight();
+
 
     //Getters and Setters
 
-    public int getColor() {
+    public String getColor() {
         return color;
     }
 
-    public int getNbColors() {
-        return nbColors;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public void setColor(int color) {
-        this.color = color;
+    public boolean isBlinking() {
+        return blinking;
+    }
+
+    public void setBlinking(boolean blinking) {
+        this.blinking = blinking;
     }
 }
