@@ -5,9 +5,10 @@ import application.exceptions.RoadNotFoundException;
 import java.util.ArrayList;
 
 public class Junction {
-    private int id;
+    private final int id;
     private int nbLinks;
     private ArrayList<RoadElement> linkedElems;
+
 
     //Constructors
 
@@ -16,6 +17,7 @@ public class Junction {
         this.nbLinks = 0;
         this.linkedElems = new ArrayList<RoadElement>();
     }
+
 
     //Methods
 
@@ -33,19 +35,21 @@ public class Junction {
         }
     }
 
+
     //Getters and Setters
 
     public int getId() {
         return id;
     }
 
+    public int getNbLinks() {
+        return nbLinks;
+    }
+
     public ArrayList<RoadElement> getLinkedElems() {
         return linkedElems;
     }
 
-    public int getNbLinks() {
-        return nbLinks;
-    }
 
     //Display
 

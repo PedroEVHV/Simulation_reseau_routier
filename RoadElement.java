@@ -9,15 +9,14 @@ import java.util.ArrayList;
 
 public class RoadElement {
 
-    private int id;
+    private final int id;
     private int size;
     private Junction junctionA;
     private Junction junctionB;
     private int speedLimit;
-
     private ArrayList<Semaphore> semaphores;
-
     private ArrayList<Sensor> sensors;
+
 
     //Constructors
 
@@ -40,6 +39,7 @@ public class RoadElement {
         this.semaphores = new ArrayList<Semaphore>();
         this.sensors = new ArrayList<Sensor>();
     }
+
 
     //Methods
 
@@ -67,6 +67,7 @@ public class RoadElement {
         }
     }
 
+
     //Getters and setters
 
     public int getId() {
@@ -77,8 +78,16 @@ public class RoadElement {
         return size;
     }
 
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     public int getSpeedLimit() {
         return speedLimit;
+    }
+
+    public void setSpeedLimit(int speedLimit) {
+        this.speedLimit = speedLimit;
     }
 
     public Junction getJunctionA() {
@@ -111,13 +120,6 @@ public class RoadElement {
         this.junctionB = junctionB;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public void setSpeedLimit(int speedLimit) {
-        this.speedLimit = speedLimit;
-    }
 
     //Display
 
