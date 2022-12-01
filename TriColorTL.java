@@ -11,7 +11,7 @@ public class TriColorTL extends TrafficLight{
 
 
     public TriColorTL(RoadElement r) {
-        super(r, "orange", true); //The Traffic Light is initialized at 0 by default
+        super(r, "green", true); //The Traffic Light is initialized at green by default
 
         regulElem = (v) -> {
             if(this.getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "orange")) {
@@ -21,7 +21,7 @@ public class TriColorTL extends TrafficLight{
     }
 
     public TriColorTL(RoadElement r, boolean direction) {
-        super(r, direction, "orange", true); //The Traffic Light is initialized at 0 by default
+        super(r, direction, "green", true); //The Traffic Light is initialized at 0 by default
     }
 
     public TriColorTL(RoadElement r, String color) {
