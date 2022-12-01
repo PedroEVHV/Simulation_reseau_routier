@@ -97,10 +97,6 @@ public class RoadElement {
         return junctionB;
     }
 
-    public ArrayList<Semaphore> getSemaphores() {
-        return semaphores;
-    }
-
     public void setJunctionA(Junction junctionA) throws JunctionException {
         if(this.junctionA!=null) try {
             junctionA.removeRoad(this);
@@ -121,6 +117,10 @@ public class RoadElement {
         }
         if(!junctionB.getLinkedElems().contains(this)) junctionB.addRoad(this);
         this.junctionB = junctionB;
+    }
+
+    public ArrayList<Semaphore> getSemaphores() {
+        return semaphores;
     }
 
 

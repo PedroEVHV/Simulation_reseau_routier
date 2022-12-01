@@ -8,6 +8,7 @@ public abstract class Semaphore {
     private boolean direction;
     protected RegulateInterface regulElem;
 
+
     //Constructors
 
     public Semaphore(RoadElement road) {

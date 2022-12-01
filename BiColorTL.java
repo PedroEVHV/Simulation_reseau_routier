@@ -5,11 +5,11 @@ public class BiColorTL extends TrafficLight {
     //Constructors
 
     public BiColorTL(RoadElement r) {
-        super(r, "orange", true); //The Traffic Light is initialized at 0 by default
+        super(r, "green"); //The Traffic Light is initialized as green by default
     }
 
     public BiColorTL(RoadElement r, boolean direction) {
-        super(r, direction, "orange", true); //The Traffic Light is initialized at 0 by default
+        super(r, direction, "green"); //The Traffic Light is initialized as green by default
     }
 
     public BiColorTL(RoadElement r, String color) {
@@ -20,26 +20,13 @@ public class BiColorTL extends TrafficLight {
         super(r, direction, color);
     }
 
-    public BiColorTL(RoadElement r, String color, boolean blinking) {
-        super(r, color, blinking);
-    }
-
-    public BiColorTL(RoadElement r, boolean direction, String color, boolean blinking) {
-        super(r, direction, color, blinking);
-    }
-
 
     //Methods
 
     public void nextLight() {
-        if(this.getColor().equals("orange")) {
-            this.setColor("red");
-            this.setBlinking(false);
-        }
-        else {
-            this.setColor("orange");
-            this.setBlinking(true);
-        }
+        if(this.getColor().equals("green")) this.setColor("red");
+        else this.setColor("green");
+
     }
 
 
