@@ -1,4 +1,4 @@
-package application;
+package application.roadNetwork;
 
 public class SpeedSign extends Semaphore{
     private int speed;

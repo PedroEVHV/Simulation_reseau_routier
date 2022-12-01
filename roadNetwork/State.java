@@ -1,4 +1,4 @@
-package application;
+package application.roadNetwork;
 
 public class State {
     private RoadElement road;

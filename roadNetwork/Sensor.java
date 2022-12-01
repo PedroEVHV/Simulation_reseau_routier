@@ -1,5 +1,6 @@
-package application;
+package application.roadNetwork;
 
+import application.app.Application;
 import application.exceptions.SemaphoreNotFoundException;
 import application.exceptions.SensorNotFoundException;
 

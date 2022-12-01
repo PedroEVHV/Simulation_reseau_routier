@@ -1,4 +1,4 @@
-package application;
+package application.roadNetwork;
 
 public abstract class TrafficLight extends Semaphore {
     private String color;

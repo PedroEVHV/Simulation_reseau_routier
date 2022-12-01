@@ -1,11 +1,12 @@
-package application;
+package application.roadNetwork;
 
+import application.app.Application;
 import application.exceptions.SemaphoreNotFoundException;
 
 public abstract class Semaphore {
     private final int id;
     private RoadElement road;
-    private boolean direction;
+    private boolean direction; // True when it is seen by cars going towards JunctionA, and vice-versa.
     protected RegulateInterface regulElem;
 
 
@@ -37,7 +38,7 @@ public abstract class Semaphore {
         try {
             this.road.removeSemaphore(this);
         }
-        catch (SemaphoreNotFoundException e) { // This should never happen.
+        catch (SemaphoreNotFoundException e) {
             System.err.println(e.getMessage());
         }
         r.addSemaphore(this);

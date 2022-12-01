@@ -1,6 +1,4 @@
-package application;
-
-import java.util.ArrayList;
+package application.roadNetwork;
 
 @FunctionalInterface
 public interface RegulateInterface {

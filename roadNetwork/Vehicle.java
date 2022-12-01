@@ -1,8 +1,6 @@
-package application;
+package application.roadNetwork;
 
-import application.Application;
-import application.RoadElement;
-import application.State;
+import application.app.Application;
 
 public class Vehicle {
     private final int id;

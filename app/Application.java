@@ -1,6 +1,10 @@
-package application;
+package application.app;
 
 
+import application.roadNetwork.Junction;
+import application.roadNetwork.RoadElement;
+import application.roadNetwork.State;
+import application.roadNetwork.Vehicle;
 import application.exceptions.JunctionException;
 
 import java.util.ArrayList;
