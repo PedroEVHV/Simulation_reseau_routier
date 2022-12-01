@@ -20,7 +20,7 @@ public class RoadElement {
     //Constructors
 
     public RoadElement() {
-        this(10, 50, new Junction(), new Junction());
+        this(10, 2, new Junction(), new Junction());
     }
 
     public RoadElement(int size, int speedLimit) {
@@ -98,22 +98,26 @@ public class RoadElement {
     }
 
     public void setJunctionA(Junction junctionA) throws JunctionException {
-        if(this.junctionA!=null) try {
-            junctionA.removeRoad(this);
-        }
-        catch (RoadNotFoundException e) { // This should never happen.
-            throw new JunctionException("The junctionA of this road does not contains this road in its linkedElements\nCritical error.");
+        if(this.junctionA!=null) {
+            try {
+                junctionA.removeRoad(this);
+            }
+            catch (RoadNotFoundException e) { // This should never happen.
+                throw new JunctionException("The junctionA of this road does not contains this road in its linkedElements\nCritical error.");
+            }
         }
         if(!junctionA.getLinkedElems().contains(this)) junctionA.addRoad(this);
         this.junctionA = junctionA;
     }
 
     public void setJunctionB(Junction junctionB) throws JunctionException {
-        if(this.junctionB!=null) try {
-            junctionB.removeRoad(this);
-        }
-        catch (RoadNotFoundException e) { // This should never happen.
-            throw new JunctionException("The junctionB of this road does not contains this road in its linkedElements\nCritical error.");
+        if(this.junctionB!=null) {
+            try {
+                junctionB.removeRoad(this);
+            }
+            catch (RoadNotFoundException e) { // This should never happen.
+                throw new JunctionException("The junctionB of this road does not contains this road in its linkedElements\nCritical error.");
+            }
         }
         if(!junctionB.getLinkedElems().contains(this)) junctionB.addRoad(this);
         this.junctionB = junctionB;
