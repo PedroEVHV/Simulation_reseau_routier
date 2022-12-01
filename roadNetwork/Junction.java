@@ -22,12 +22,12 @@ public class Junction {
 
     //Methods
 
-    public void addRoad(RoadElement r) {
+    void addRoad(RoadElement r) {
         this.linkedElems.add(r);
         ++nbLinks;
     }
 
-    public void removeRoad(RoadElement r) throws RoadNotFoundException {
+    void removeRoad(RoadElement r) throws RoadNotFoundException {
         if(this.linkedElems.contains(r)) {
             this.linkedElems.remove(r);
             this.nbLinks--;

@@ -24,6 +24,10 @@ public class RoadElement {
         this(10, 2, new Junction(), new Junction());
     }
 
+    public RoadElement(Junction a, Junction b) {
+        this(10, 2, a, b);
+    }
+
     public RoadElement(int size, int speedLimit) {
         this(size, speedLimit, new Junction(), new Junction());
     }

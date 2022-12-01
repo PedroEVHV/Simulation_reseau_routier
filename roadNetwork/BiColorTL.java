@@ -23,7 +23,7 @@ public class BiColorTL extends TrafficLight {
 
     //Methods
 
-    public void nextLight() {
+    void nextLight() {
         if(this.getColor().equals("green")) this.setColor("red");
         else this.setColor("green");
 

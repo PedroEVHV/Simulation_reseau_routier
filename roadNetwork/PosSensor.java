@@ -2,20 +2,50 @@ package application.roadNetwork;
 
 import java.util.ArrayList;
 
-public class PosSensor extends Sensor{
+public class PosSensor extends Sensor {
+
+    private int vehicleID;
+    private int pos;
 
     //Constructors
-    public PosSensor() {
-        super();
+
+    public PosSensor(RoadElement r) {
+        super(r);
+        this.pos = -1;
+        this.vehicleID = -1;
     }
 
-    public PosSensor(PosSensor p) {
-        super(p.getRoad(), p.getPos(), p.getDirection(), p.getSemaphores());
+    public PosSensor(RoadElement r, int p, Boolean direction) {
+        super(r, p, direction);
+        this.pos = -1;
+        this.vehicleID = -1;
     }
 
     public PosSensor(RoadElement r, int p, Boolean direction, ArrayList<Semaphore> semaphores) {
         super(r, p, direction, semaphores);
+        this.pos = -1;
+        this.vehicleID = -1;
     }
+
+
+    //Getters and Setters
+
+    public int getPos() {
+        return this.pos;
+    }
+
+    void setPos(int speed) {
+        this.pos = speed;
+    }
+
+    public int getVehicleID() {
+        return this.vehicleID;
+    }
+
+    void setVehicleID(int vehicleID) {
+        this.vehicleID = vehicleID;
+    }
+
 
     //Display
 

@@ -27,7 +27,7 @@ public abstract class TrafficLight extends Semaphore {
 
     //Methods
 
-    public abstract void nextLight();
+    abstract void nextLight();
 
 
     //Getters and Setters
@@ -36,7 +36,7 @@ public abstract class TrafficLight extends Semaphore {
         return color;
     }
 
-    public void setColor(String color) {
+    void setColor(String color) {
         this.color = color;
     }
 }

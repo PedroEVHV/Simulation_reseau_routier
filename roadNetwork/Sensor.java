@@ -10,33 +10,46 @@ public abstract class Sensor {
     private final int id;
     private RoadElement road;
     private int pos;
-    protected RegulateInterface regulateInterface;
     private Boolean direction;
     private ArrayList<Semaphore> semaphores;
+    protected RegulateInterface regulateInterface;
+
 
     //Constructors
 
-    public Sensor () {
-        this.id = Application.idCounter++;
-        this.road = null;
-        this.pos = 0;
-        this.semaphores = new ArrayList<Semaphore>();
-        this.direction = true;
+    public Sensor(RoadElement r) {
+        this(r, 0, true, new ArrayList<Semaphore>());
     }
 
-    public Sensor (RoadElement r, int p, Boolean direction, ArrayList<Semaphore> s) {
+    public Sensor(RoadElement r, int p, boolean direction) {
+        this(r, p, direction, new ArrayList<Semaphore>());
+    }
+
+    public Sensor(RoadElement r, int p, boolean direction, ArrayList<Semaphore> s) {
         this.id = Application.idCounter++;
         this.road = r;
         this.pos = p;
-        this.semaphores = s;
         this.direction = direction;
+        this.semaphores = s;
     }
+
+
+    // Methods
+
+    void addSemaphore(Semaphore s) {
+        this.semaphores.add(s);
+    }
+
+    void removeSemaphore(Semaphore s) throws SemaphoreNotFoundException {
+        if(this.semaphores.contains(s)) {
+            this.semaphores.remove(s);
+        } else {
+            throw new SemaphoreNotFoundException("Semaphore not found !");
+        }
+    }
+
 
     //Getters and Setters
-
-    public RoadElement getRoad() {
-        return road;
-    }
 
     public int getId() {
         return id;
@@ -46,47 +59,23 @@ public abstract class Sensor {
         return pos;
     }
 
+    void setPos(int pos) {
+        this.pos = pos;
+    }
+
     public Boolean getDirection() {
         return this.direction;
+    }
+
+    void setDirection(boolean direction) {
+        this.direction = direction;
+    }
+
+    public RoadElement getRoad() {
+        return road;
     }
 
     public ArrayList<Semaphore> getSemaphores() {
         return this.semaphores;
     }
-
-    public void setRoad(RoadElement road) {
-        if(this.road != null) {
-            try {
-                this.road.removeSensor(this);
-            }
-            catch (SensorNotFoundException e) {
-                System.err.println("This should never happen.");
-            }
-        }
-        road.addSensor(this);
-        this.road = road;
-    }
-
-    public void setPos(int pos) {
-        this.pos = pos;
-    }
-
-    public void setSemaphores(ArrayList<Semaphore> semaphores) {
-        this.semaphores = semaphores;
-    }
-
-    // Methods
-
-    public void addSemaphore(Semaphore s) {
-        this.semaphores.add(s);
-    }
-
-    public void removeSemaphore(Semaphore s) throws SemaphoreNotFoundException {
-        if(this.semaphores.contains(s)) {
-            this.semaphores.remove(s);
-        } else {
-            throw new SemaphoreNotFoundException("Semaphore not found !");
-        }
-    }
-
 }

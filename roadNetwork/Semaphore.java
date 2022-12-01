@@ -34,22 +34,11 @@ public abstract class Semaphore {
         return road;
     }
 
-    void setRoad(RoadElement r) {
-        try {
-            this.road.removeSemaphore(this);
-        }
-        catch (SemaphoreNotFoundException e) {
-            System.err.println(e.getMessage());
-        }
-        r.addSemaphore(this);
-        this.road = r;
-    }
-
     public boolean getDir() {
         return this.direction;
     }
 
-    public void setDirection(boolean direction) {
+    void setDirection(boolean direction) {
         this.direction = direction;
     }
 }

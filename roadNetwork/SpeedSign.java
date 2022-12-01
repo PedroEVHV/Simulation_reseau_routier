@@ -32,7 +32,7 @@ public class SpeedSign extends Semaphore{
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    void setSpeed(int speed) {
         this.speed = speed;
     }
 

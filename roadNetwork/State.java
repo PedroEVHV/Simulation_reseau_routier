@@ -40,15 +40,15 @@ public class State {
         return road;
     }
 
-    public void setPos(int pos) {
+    void setPos(int pos) {
         this.pos = pos;
     }
 
-    public void setRoad(RoadElement road) {
+    void setRoad(RoadElement road) {
         this.road = road;
     }
 
-    public void setSpeed(int speed) {
+    void setSpeed(int speed) {
         this.speed = speed;
     }
 

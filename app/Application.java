@@ -29,61 +29,14 @@ public class Application {
         Junction j8 = new Junction();
 
 
-        RoadElement r1 = new RoadElement();
-        RoadElement r2 = new RoadElement();
-        RoadElement r3 = new RoadElement();
-        RoadElement r4 = new RoadElement();
-        RoadElement r5 = new RoadElement();
-        RoadElement r6 = new RoadElement();
-        RoadElement r7 = new RoadElement();
+        RoadElement r1 = new RoadElement(j1,j4);
+        RoadElement r2 = new RoadElement(j1,j2);
+        RoadElement r3 = new RoadElement(j2,j3);
+        RoadElement r4 = new RoadElement(j2,j5);
+        RoadElement r5 = new RoadElement(j2,j6);
+        RoadElement r6 = new RoadElement(j3,j7);
+        RoadElement r7 = new RoadElement(j3,j8);
 
-
-        {
-            j1.addRoad(r1);
-            j1.addRoad(r2);
-
-            j2.addRoad(r2);
-            j2.addRoad(r3);
-            j2.addRoad(r4);
-            j2.addRoad(r5);
-
-            j3.addRoad(r3);
-            j3.addRoad(r6);
-            j3.addRoad(r7);
-
-            j4.addRoad(r1);
-
-            j5.addRoad(r4);
-
-            j6.addRoad(r5);
-
-            j7.addRoad(r6);
-
-            j8.addRoad(r7);
-        }
-
-        {
-            r1.setJunctionA(j4);
-            r1.setJunctionB(j1);
-
-            r2.setJunctionA(j1);
-            r2.setJunctionB(j2);
-
-            r3.setJunctionA(j2);
-            r3.setJunctionB(j3);
-
-            r4.setJunctionA(j5);
-            r4.setJunctionB(j2);
-
-            r5.setJunctionA(j2);
-            r5.setJunctionB(j6);
-
-            r6.setJunctionA(j3);
-            r6.setJunctionB(j7);
-
-            r7.setJunctionA(j8);
-            r7.setJunctionB(j3);
-        }
         vehicles = new ArrayList<>();
         vehicles.add(new Vehicle(new State(r1, -1, 2) ));
         vehicles.add(new Vehicle(new State(r7, 1, 2) ));

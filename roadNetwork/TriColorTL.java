@@ -19,7 +19,7 @@ public class TriColorTL extends TrafficLight{
     }
 
     public TriColorTL(RoadElement r, boolean direction) {
-        super(r, direction, "green"); //The Traffic Light is initialized at 0 by default
+        super(r, direction, "green"); //The Traffic Light is initialized as green by default
     }
 
     public TriColorTL(RoadElement r, String color) {
