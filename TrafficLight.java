@@ -8,11 +8,11 @@ public abstract class TrafficLight extends Semaphore {
     //Constructors
 
     public TrafficLight(RoadElement r) {
-        this(r, "orange", true);
+        this(r, "green", true);
     }
 
     public TrafficLight(RoadElement r, boolean direction) {
-        this(r, direction,  "orange", true);
+        this(r, direction,  "green", true);
     }
 
     public TrafficLight(RoadElement r, String color) {

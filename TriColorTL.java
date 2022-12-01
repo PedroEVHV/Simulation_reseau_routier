@@ -1,12 +1,23 @@
 package application;
 
+import java.util.Objects;
+
 public class TriColorTL extends TrafficLight{
+
+
+
 
     //Constructors
 
 
     public TriColorTL(RoadElement r) {
         super(r, "orange", true); //The Traffic Light is initialized at 0 by default
+
+        regulElem = (v) -> {
+            if(this.getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "orange")) {
+                v.getCurrState().setSpeed(v.getCurrState().getSpeed()/2);
+            }
+        };
     }
 
     public TriColorTL(RoadElement r, boolean direction) {
