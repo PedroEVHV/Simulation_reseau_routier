@@ -30,12 +30,15 @@ public class RoadElement {
     }
 
     public RoadElement(int size, int speedLimit, Junction a, Junction b) {
+        this.id = Application.idCounter++;
         this.size = size;
         this.speedLimit = speedLimit;
         this.junctionA = a;
         a.addRoad(this);
         this.junctionB = b;
         b.addRoad(this);
+        this.semaphores = new ArrayList<Semaphore>();
+        this.sensors = new ArrayList<Sensor>();
     }
 
     //Methods

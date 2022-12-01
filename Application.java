@@ -8,16 +8,17 @@ public class Application {
 
 
     public static void main(String[] args) {
-        Junction j1 = new Junction();
-        Junction j2 = new Junction();
-        Junction j3 = new Junction();
 
-        RoadElement r1 = new RoadElement(10, 20, j2, j1);
-        RoadElement r2 = new RoadElement(10, 20, j1, j3);
+        RoadElement r1 = new RoadElement(10, 50);
+
+        Junction newJunction = new Junction();
+
+        RoadElement r2 = new RoadElement(10, 30, r1.getJunctionB(), newJunction);
 
         Vehicle vehicleTest = new Vehicle(new State(r1, 0, 1));
 
         System.out.println(r1);
-        System.out.println(j1);
+        System.out.println(r2);
+        System.out.println(r2.getJunctionA());
     }
 }
