@@ -6,6 +6,10 @@ public class BiColorTL extends TrafficLight {
 
     public BiColorTL(RoadElement r) {
         super(r, "green"); //The Traffic Light is initialized as green by default
+
+        regulElem = (v) -> {
+
+        };
     }
 
     public BiColorTL(RoadElement r, boolean direction) {

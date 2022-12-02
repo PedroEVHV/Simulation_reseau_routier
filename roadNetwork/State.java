@@ -4,6 +4,7 @@ public class State {
     private RoadElement road;
     private int pos;
     private int speed;
+    private boolean dir;
 
     //Constructors
 
@@ -35,6 +36,8 @@ public class State {
     public int getSpeed() {
         return speed;
     }
+
+    public boolean getDir() {return dir;};
 
     public RoadElement getRoad() {
         return road;
