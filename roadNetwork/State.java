@@ -18,12 +18,14 @@ public class State {
         this.road = s.road;
         this.pos = s.pos;
         this.speed = s.speed;
+        this.dir = s.dir;
     }
 
-    public State(RoadElement r, int p, int s) {
+    public State(RoadElement r, int p, int s, boolean d) {
         this.road = r;
         this.pos = p;
         this.speed = s;
+        this.dir = d;
     }
 
 
@@ -38,6 +40,10 @@ public class State {
     }
 
     public boolean getDir() {return dir;};
+
+    public void setDir(boolean dir) {
+        this.dir = dir;
+    }
 
     public RoadElement getRoad() {
         return road;
@@ -60,7 +66,7 @@ public class State {
 
     @Override
     public String toString() {
-        String output = "Etat --- vitesse: " + this.speed + " --- position: " + this.pos;
+        String output = "Etat --- vitesse: " + this.speed + " --- position: " + this.pos + " --- route: " + this.getRoad().getId();
         return output;
     }
 }

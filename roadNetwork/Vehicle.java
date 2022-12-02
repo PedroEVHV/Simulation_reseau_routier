@@ -21,14 +21,14 @@ public class Vehicle {
         this.id = Application.idCounter;
         Application.idCounter++;
 
-        this.currState = new State(s.getRoad(), s.getPos(), s.getSpeed());
+        this.currState = new State(s.getRoad(), s.getPos(), s.getSpeed(), s.getDir());
     }
 
-    public Vehicle(RoadElement r, int pos, int speed) {
+    public Vehicle(RoadElement r, int pos, int speed, boolean dir) {
         this.id = Application.idCounter;
         Application.idCounter++;
 
-        this.currState = new State(r, pos, speed);
+        this.currState = new State(r, pos, speed, dir);
     }
 
     //Methods
@@ -62,11 +62,37 @@ public class Vehicle {
         if(this.getCurrState().getDir() && this.getCurrState().getPos() + this.getCurrState().getSpeed() > this.getCurrState().getRoad().getSize()) {
             int max = this.getCurrState().getRoad().getJunctionB().getLinkedElems().size();
             int select = rs.ints(1, 0, max).findFirst().getAsInt();
-            this.getCurrState().setRoad(this.getCurrState().getRoad().getJunctionB().getLinkedElems().get(select));
+
+            if(this.getCurrState().getRoad().getJunctionB().getLinkedElems().size() == 1) {
+                this.getCurrState().setPos(0);
+                this.getCurrState().setDir(!this.getCurrState().getDir());
+
+            } else {
+                while(this.getCurrState().getRoad().getJunctionB().getLinkedElems().get(select) == this.getCurrState().getRoad()) {
+                    select = rs.ints(1, 0, max).findFirst().getAsInt();
+                }
+                this.getCurrState().setRoad(this.getCurrState().getRoad().getJunctionB().getLinkedElems().get(select));
+                this.getCurrState().setPos(0);
+            }
+
+
         } else if(!this.getCurrState().getDir() && this.getCurrState().getPos() + this.getCurrState().getSpeed() > this.getCurrState().getRoad().getSize()) {
+
             int max = this.getCurrState().getRoad().getJunctionA().getLinkedElems().size();
             int select = rs.ints(1, 0, max).findFirst().getAsInt();
-            this.getCurrState().setRoad(this.getCurrState().getRoad().getJunctionA().getLinkedElems().get(select));
+
+            if(this.getCurrState().getRoad().getJunctionA().getLinkedElems().size() == 1) {
+                this.getCurrState().setPos(0);
+                this.getCurrState().setDir(!this.getCurrState().getDir());
+
+            } else {
+                while(this.getCurrState().getRoad().getJunctionA().getLinkedElems().get(select) == this.getCurrState().getRoad()) {
+                    select = rs.ints(1, 0, max).findFirst().getAsInt();
+                }
+                this.getCurrState().setRoad(this.getCurrState().getRoad().getJunctionA().getLinkedElems().get(select));
+                this.getCurrState().setPos(0);
+            }
+
         } else {
             this.move();
         }
