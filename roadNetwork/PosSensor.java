@@ -13,6 +13,10 @@ public class PosSensor extends Sensor {
         super(r);
         this.pos = -1;
         this.vehicleID = -1;
+
+        regulateInterface = () -> {
+
+        };
     }
 
     public PosSensor(RoadElement r, int p, Boolean direction) {
