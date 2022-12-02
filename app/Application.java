@@ -1,10 +1,7 @@
 package application.app;
 
 
-import application.roadNetwork.Junction;
-import application.roadNetwork.RoadElement;
-import application.roadNetwork.State;
-import application.roadNetwork.Vehicle;
+import application.roadNetwork.*;
 import application.exceptions.JunctionException;
 
 import java.util.ArrayList;
@@ -25,13 +22,15 @@ public class Application {
         RoadElement r6 = new RoadElement(r3.getJunctionB(), new Junction());
         RoadElement r7 = new RoadElement(new Junction(), r6.getJunctionA());
 
+        r2.addSemaphore(new SpeedSign(r2, true, 2));
+
 
         vehicles = new ArrayList<>();
         //vehicles.add(new Vehicle(new State(r1, -1, 2) ));
         //vehicles.add(new Vehicle(new State(r7, 1, 2) ));
-        vehicles.add(new Vehicle(new State(r5, 10, 2, false) ));
+        vehicles.add(new Vehicle(new State(r1, 0, 6, true) ));
 
-        while (time < 500) {
+        while (time < 100) {
             for(int i = 0; i < vehicles.size(); i++) {
                 vehicles.get(i).checkPos();
                 System.out.println(vehicles.get(i).toString());
