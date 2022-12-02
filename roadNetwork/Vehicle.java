@@ -63,6 +63,12 @@ public class Vehicle {
             int max = this.getCurrState().getRoad().getJunctionB().getLinkedElems().size();
             int select = rs.ints(1, 0, max).findFirst().getAsInt();
             this.getCurrState().setRoad(this.getCurrState().getRoad().getJunctionB().getLinkedElems().get(select));
+        } else if(!this.getCurrState().getDir() && this.getCurrState().getPos() + this.getCurrState().getSpeed() > this.getCurrState().getRoad().getSize()) {
+            int max = this.getCurrState().getRoad().getJunctionA().getLinkedElems().size();
+            int select = rs.ints(1, 0, max).findFirst().getAsInt();
+            this.getCurrState().setRoad(this.getCurrState().getRoad().getJunctionA().getLinkedElems().get(select));
+        } else {
+            this.move();
         }
     }
 
