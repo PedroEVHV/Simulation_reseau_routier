@@ -11,7 +11,7 @@ public class TriColorTL extends TrafficLight{
     public TriColorTL(RoadElement r) {
         super(r, "green"); //The Traffic Light is initialized at green by default
 
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "orange")) {
                 v.getCurrState().setSpeed(v.getCurrState().getSpeed()/2);
             } else if (this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {
@@ -22,7 +22,7 @@ public class TriColorTL extends TrafficLight{
 
     public TriColorTL(RoadElement r, boolean direction) {
         super(r, direction, "green"); //The Traffic Light is initialized as green by default
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "orange")) {
                 v.getCurrState().setSpeed(v.getCurrState().getSpeed()/2);
             } else if (this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {
@@ -33,7 +33,7 @@ public class TriColorTL extends TrafficLight{
 
     public TriColorTL(RoadElement r, String color) {
         super(r, color);
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "orange")) {
                 v.getCurrState().setSpeed(v.getCurrState().getSpeed()/2);
             } else if (this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {
@@ -44,7 +44,7 @@ public class TriColorTL extends TrafficLight{
 
     public TriColorTL(RoadElement r, boolean direction, String color) {
         super(r, direction, color);
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "orange")) {
                 v.getCurrState().setSpeed(v.getCurrState().getSpeed()/2);
             } else if (this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {

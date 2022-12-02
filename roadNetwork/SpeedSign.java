@@ -10,7 +10,7 @@ public class SpeedSign extends Semaphore{
         super(r);
         this.speed = 2;
 
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             v.getCurrState().setSpeed(Math.min(v.getCurrState().getSpeed(), this.speed));
         };
     }
@@ -18,7 +18,7 @@ public class SpeedSign extends Semaphore{
     public SpeedSign(RoadElement r, boolean direction) {
         super(r, direction);
         this.speed = 2;
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             v.getCurrState().setSpeed(Math.min(v.getCurrState().getSpeed(), this.speed));
         };
     }
@@ -26,7 +26,7 @@ public class SpeedSign extends Semaphore{
     public SpeedSign(RoadElement r, int speed) {
         super(r);
         this.speed = speed;
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             v.getCurrState().setSpeed(Math.min(v.getCurrState().getSpeed(), this.speed));
         };
     }
@@ -34,7 +34,7 @@ public class SpeedSign extends Semaphore{
     public SpeedSign(RoadElement r, boolean direction, int speed) {
         super(r, direction);
         this.speed = speed;
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             v.getCurrState().setSpeed(Math.min(v.getCurrState().getSpeed(), this.speed));
         };
     }

@@ -47,7 +47,7 @@ public class Vehicle {
     public void checkPos() {
         for(int i = 0; i < this.getCurrState().getRoad().getSemaphores().size(); i++) {
 
-            this.getCurrState().getRoad().getSemaphores().get(i).regulElem.regulate(this);
+            this.getCurrState().getRoad().getSemaphores().get(i).interactInterface.interact(this);
         }
     }
 

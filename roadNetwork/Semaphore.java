@@ -1,13 +1,12 @@
 package application.roadNetwork;
 
 import application.app.Application;
-import application.exceptions.SemaphoreNotFoundException;
 
 public abstract class Semaphore {
     private final int id;
     private RoadElement road;
     private boolean direction; // True when it is seen by cars going towards JunctionA, and vice-versa.
-    protected RegulateInterface regulElem;
+    protected InteractInterface interactInterface;
 
 
     //Constructors

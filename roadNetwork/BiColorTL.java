@@ -9,14 +9,14 @@ public class BiColorTL extends TrafficLight {
     public BiColorTL(RoadElement r) {
         super(r, "green"); //The Traffic Light is initialized as green by default
 
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
 
         };
     }
 
     public BiColorTL(RoadElement r, boolean direction) {
         super(r, direction, "green"); //The Traffic Light is initialized as green by default
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {
                 v.getCurrState().setSpeed(0);
             }
@@ -25,7 +25,7 @@ public class BiColorTL extends TrafficLight {
 
     public BiColorTL(RoadElement r, String color) {
         super(r, color);
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {
                 v.getCurrState().setSpeed(0);
             }
@@ -34,7 +34,7 @@ public class BiColorTL extends TrafficLight {
 
     public BiColorTL(RoadElement r, boolean direction, String color) {
         super(r, direction, color);
-        regulElem = (v) -> {
+        interactInterface = (v) -> {
             if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {
                 v.getCurrState().setSpeed(0);
             }

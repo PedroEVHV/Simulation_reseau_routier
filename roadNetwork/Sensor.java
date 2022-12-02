@@ -2,7 +2,6 @@ package application.roadNetwork;
 
 import application.app.Application;
 import application.exceptions.SemaphoreNotFoundException;
-import application.exceptions.SensorNotFoundException;
 
 import java.util.ArrayList;
 
@@ -12,7 +11,7 @@ public abstract class Sensor {
     private int pos;
     private Boolean direction;
     private ArrayList<Semaphore> semaphores;
-    protected RegulateInterface regulateInterface;
+    protected InteractInterface interactInterface;
 
 
     //Constructors
