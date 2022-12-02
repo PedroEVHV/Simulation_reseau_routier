@@ -1,6 +1,7 @@
 package application.roadNetwork;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class PosSensor extends Sensor {
 
@@ -15,7 +16,11 @@ public class PosSensor extends Sensor {
         this.vehicleID = -1;
 
         regulateInterface = () -> {
-
+            for(int i = 0; i < this.getTrafficLights().size(); i++) {
+                if(this.getTrafficLights().get(i).getClass().getTypeName().equals("TriColor") && !Objects.equals(this.getTrafficLights().get(i).getColor(), "orange")) {
+                    this.getTrafficLights().get(i).setColor("rouge");
+                }
+            }
         };
     }
 
@@ -23,12 +28,28 @@ public class PosSensor extends Sensor {
         super(r, p, direction);
         this.pos = -1;
         this.vehicleID = -1;
+
+        regulateInterface = () -> {
+            for(int i = 0; i < this.getTrafficLights().size(); i++) {
+                if(this.getTrafficLights().get(i).getClass().getTypeName().equals("TriColor") && !Objects.equals(this.getTrafficLights().get(i).getColor(), "orange")) {
+                    this.getTrafficLights().get(i).setColor("rouge");
+                }
+            }
+        };
     }
 
     public PosSensor(RoadElement r, int p, Boolean direction, ArrayList<TrafficLight> trafficLights) {
         super(r, p, direction, trafficLights);
         this.pos = -1;
         this.vehicleID = -1;
+
+        regulateInterface = () -> {
+            for(int i = 0; i < this.getTrafficLights().size(); i++) {
+                if(this.getTrafficLights().get(i).getClass().getTypeName().equals("TriColor") && !Objects.equals(this.getTrafficLights().get(i).getColor(), "orange")) {
+                    this.getTrafficLights().get(i).setColor("rouge");
+                }
+            }
+        };
     }
 
 

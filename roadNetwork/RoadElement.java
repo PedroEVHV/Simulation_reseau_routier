@@ -102,6 +102,10 @@ public class RoadElement {
         return junctionB;
     }
 
+    public ArrayList<Sensor> getSensors() {
+        return sensors;
+    }
+
     public void setJunctionA(Junction junctionA) throws JunctionException {
         if(this.junctionA!=null) {
             try {

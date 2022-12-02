@@ -2,6 +2,8 @@ package application.roadNetwork;
 
 import application.app.Application;
 
+import java.util.Random;
+
 public class Vehicle {
     private final int id;
     private State currState;
@@ -35,7 +37,7 @@ public class Vehicle {
      * Changes position on current road element. Does not change road elements, that is implemented in checkPos().
      */
     public void move() {
-
+        this.getCurrState().setPos(this.getCurrState().getSpeed() + this.getCurrState().getPos());
     }
 
 
@@ -45,9 +47,22 @@ public class Vehicle {
      * If all criteria are met, it will call the move function.
      */
     public void checkPos() {
+
+        Random rs = new Random();
+
+        for (int i = 0; i < this.getCurrState().getRoad().getSensors().size(); i++) {
+            this.getCurrState().getRoad().getSensors().get(i).regulateInterface.regulate();
+        }
+
         for(int i = 0; i < this.getCurrState().getRoad().getSemaphores().size(); i++) {
 
             this.getCurrState().getRoad().getSemaphores().get(i).interactInterface.interact(this);
+        }
+
+        if(this.getCurrState().getDir() && this.getCurrState().getPos() + this.getCurrState().getSpeed() > this.getCurrState().getRoad().getSize()) {
+            int max = this.getCurrState().getRoad().getJunctionB().getLinkedElems().size();
+            int select = rs.ints(1, 0, max).findFirst().getAsInt();
+            this.getCurrState().setRoad(this.getCurrState().getRoad().getJunctionB().getLinkedElems().get(select));
         }
     }
 

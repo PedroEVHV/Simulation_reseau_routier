@@ -18,8 +18,8 @@ public class SpeedSensor extends Sensor{
 
         regulateInterface = () -> {
             for(int i = 0; i < this.getTrafficLights().size(); i++) {
-                while(this.getTrafficLights().get(i).getClass().getTypeName().equals("TriColor") && !Objects.equals(this.getTrafficLights().get(i).getColor(), "orange")) {
-                    this.getTrafficLights().get(i).nextLight();
+                if(this.getTrafficLights().get(i).getClass().getTypeName().equals("TriColor") && !Objects.equals(this.getTrafficLights().get(i).getColor(), "orange")) {
+                    this.getTrafficLights().get(i).setColor("orange");
                 }
             }
         };
