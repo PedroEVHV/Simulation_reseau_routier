@@ -2,6 +2,7 @@ package application.roadNetwork;
 
 import java.util.ArrayList;
 
+
 public class SpeedSensor extends Sensor{
 
     private int vehicleID;
@@ -13,6 +14,14 @@ public class SpeedSensor extends Sensor{
         super(r);
         this.speed = -1;
         this.vehicleID = -1;
+
+        regulateInterface = () -> {
+            for(int i = 0; i < this.getTrafficLights().size(); i++) {
+                if(this.getTrafficLights().get(i).getClass().getTypeName().equals("BiColorTL")) {
+
+                }
+            }
+        };
     }
 
     public SpeedSensor(RoadElement r, int p, Boolean direction) {
@@ -21,8 +30,8 @@ public class SpeedSensor extends Sensor{
         this.vehicleID = -1;
     }
 
-    public SpeedSensor(RoadElement r, int p, Boolean direction, ArrayList<Semaphore> semaphores) {
-        super(r, p, direction, semaphores);
+    public SpeedSensor(RoadElement r, int p, Boolean direction, ArrayList<TrafficLight> trafficLights) {
+        super(r, p, direction, trafficLights);
         this.speed = -1;
         this.vehicleID = -1;
     }
@@ -52,7 +61,7 @@ public class SpeedSensor extends Sensor{
     public String toString() {
         String output = "Capteur Vitesse --- id: " + this.getId() + " --- position: " + this.getPos()
                 + "\nroute: "+ this.getRoad().toString()+ "\nsemaphores: \n";
-        for (Semaphore e : this.getSemaphores()) {
+        for (Semaphore e : this.getTrafficLights()) {
             output += e.toString() + "\n --- \n";
         }
         return output;

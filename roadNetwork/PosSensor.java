@@ -21,8 +21,8 @@ public class PosSensor extends Sensor {
         this.vehicleID = -1;
     }
 
-    public PosSensor(RoadElement r, int p, Boolean direction, ArrayList<Semaphore> semaphores) {
-        super(r, p, direction, semaphores);
+    public PosSensor(RoadElement r, int p, Boolean direction, ArrayList<TrafficLight> trafficLights) {
+        super(r, p, direction, trafficLights);
         this.pos = -1;
         this.vehicleID = -1;
     }
@@ -52,7 +52,7 @@ public class PosSensor extends Sensor {
     @Override
     public String toString() {
         String output = "Capteur Position --- id: " + this.getId() + " --- position: " + this.getPos() + "\nsemaphores: \n";
-        for (Semaphore e : this.getSemaphores()) {
+        for (Semaphore e : this.getTrafficLights()) {
             output += e.toString() + "\n --- \n";
         }
         return output;

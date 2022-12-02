@@ -1,6 +1,6 @@
 package application.roadNetwork;
 
 @FunctionalInterface
-public interface regulateInterface {
+public interface RegulateInterface {
     void regulate();
 }

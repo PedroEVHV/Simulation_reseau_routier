@@ -10,38 +10,40 @@ public abstract class Sensor {
     private RoadElement road;
     private int pos;
     private Boolean direction;
-    private ArrayList<Semaphore> semaphores;
-    protected InteractInterface interactInterface;
+    private ArrayList<TrafficLight> trafficLights;
+
+    protected RegulateInterface regulateInterface;
 
 
     //Constructors
 
     public Sensor(RoadElement r) {
-        this(r, 0, true, new ArrayList<Semaphore>());
+        this(r, 0, true, new ArrayList<TrafficLight>());
+
     }
 
     public Sensor(RoadElement r, int p, boolean direction) {
-        this(r, p, direction, new ArrayList<Semaphore>());
+        this(r, p, direction, new ArrayList<TrafficLight>());
     }
 
-    public Sensor(RoadElement r, int p, boolean direction, ArrayList<Semaphore> s) {
+    public Sensor(RoadElement r, int p, boolean direction, ArrayList<TrafficLight> s) {
         this.id = Application.idCounter++;
         this.road = r;
         this.pos = p;
         this.direction = direction;
-        this.semaphores = s;
+        this.trafficLights = s;
     }
 
 
     // Methods
 
-    void addSemaphore(Semaphore s) {
-        this.semaphores.add(s);
+    void addSemaphore(TrafficLight s) {
+        this.trafficLights.add(s);
     }
 
     void removeSemaphore(Semaphore s) throws SemaphoreNotFoundException {
-        if(this.semaphores.contains(s)) {
-            this.semaphores.remove(s);
+        if(this.trafficLights.contains(s)) {
+            this.trafficLights.remove(s);
         } else {
             throw new SemaphoreNotFoundException("Semaphore not found !");
         }
@@ -74,7 +76,7 @@ public abstract class Sensor {
         return road;
     }
 
-    public ArrayList<Semaphore> getSemaphores() {
-        return this.semaphores;
+    public ArrayList<TrafficLight> getTrafficLights() {
+        return this.trafficLights;
     }
 }
