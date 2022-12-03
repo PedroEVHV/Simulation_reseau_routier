@@ -1,6 +1,7 @@
 package application.roadNetwork;
 
 import application.app.Application;
+import application.exceptions.VehicleNotFoundException;
 
 import java.util.Random;
 
@@ -46,7 +47,7 @@ public class Vehicle {
      * if the vehicle is allowed to move due to traffic lights, etc...
      * If all criteria are met, it will call the move function.
      */
-    protected void checkPos() {
+    protected boolean checkPos()  {
 
         Random rs = new Random();
 
@@ -71,9 +72,13 @@ public class Vehicle {
                 while(this.getCurrState().getRoad().getJunctionB().getLinkedElems().get(select) == this.getCurrState().getRoad()) {
                     select = rs.ints(1, 0, max).findFirst().getAsInt();
                 }
+                //this.getCurrState().getRoad().removeVehicle(this);
                 this.getCurrState().setRoad(this.getCurrState().getRoad().getJunctionB().getLinkedElems().get(select));
                 this.getCurrState().setPos(0);
+                return true;
+
             }
+
 
 
         } else if(!this.getCurrState().getDir() && this.getCurrState().getPos() + this.getCurrState().getSpeed() > this.getCurrState().getRoad().getSize()) {
@@ -91,11 +96,13 @@ public class Vehicle {
                 }
                 this.getCurrState().setRoad(this.getCurrState().getRoad().getJunctionA().getLinkedElems().get(select));
                 this.getCurrState().setPos(0);
+                return true;
             }
 
         } else {
             this.move();
         }
+        return false;
     }
 
 

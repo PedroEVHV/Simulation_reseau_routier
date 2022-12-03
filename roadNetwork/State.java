@@ -1,5 +1,7 @@
 package application.roadNetwork;
 
+import application.exceptions.VehicleNotFoundException;
+
 public class State {
     private RoadElement road;
     private int pos;
@@ -22,6 +24,7 @@ public class State {
     }
 
     public State(RoadElement r, int p, int s, boolean d) {
+
         this.road = r;
         this.pos = p;
         this.speed = s;
@@ -66,8 +69,10 @@ public class State {
         this.pos = pos;
     }
 
-    void setRoad(RoadElement road) {
+    void setRoad(RoadElement road)  {
+        //this.road.removeVehicle(v);
         this.road = road;
+
     }
 
     void setSpeed(int speed) {

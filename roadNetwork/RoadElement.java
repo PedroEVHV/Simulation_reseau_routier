@@ -78,18 +78,28 @@ public class RoadElement {
     }
 
     public void removeVehicle(Vehicle v) throws VehicleNotFoundException {
-        if(this.sensors.contains(v)) {
-            this.sensors.remove(v);
+        if(this.vehicles.contains(v)) {
+            this.vehicles.remove(v);
         } else {
             throw new VehicleNotFoundException("Cannot find the vehicle to remove.");
         }
     }
 
-    public void moveVehicles() {
+
+
+    public void moveVehicles() throws VehicleNotFoundException {
+        Vehicle toBeRemoved = null;
         for (Vehicle vehicle : this.vehicles) {
-            vehicle.checkPos();
-            System.out.println(vehicle.toString());
+            if(vehicle.checkPos()) {
+                vehicle.getCurrState().getRoad().addVehicle(vehicle);
+                toBeRemoved = vehicle;
+            }
+            //System.out.println(vehicle.toString());
         }
+        if(toBeRemoved != null) {
+            this.removeVehicle(toBeRemoved);
+        }
+
         for(Vehicle vehicle : this.vehicles) {
             for(Vehicle v : this.vehicles) {
                 if(vehicle.getId()!=v.getId() && vehicle.getCurrState().equals(v.getCurrState())) {

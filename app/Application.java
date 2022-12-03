@@ -1,6 +1,7 @@
 package application.app;
 
 
+import application.exceptions.VehicleNotFoundException;
 import application.roadNetwork.*;
 import application.exceptions.JunctionException;
 
@@ -11,7 +12,7 @@ public class Application {
     public static int time = 0;
 
 
-    public static void main(String[] args) throws JunctionException {
+    public static void main(String[] args) throws JunctionException, VehicleNotFoundException {
 
         RoadElement r1 = new RoadElement();
         RoadElement r2 = new RoadElement(r1.getJunctionB(), new Junction());
