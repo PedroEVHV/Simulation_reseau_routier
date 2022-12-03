@@ -32,11 +32,11 @@ public class State {
 
     @Override
     public boolean equals(Object o) {
-        if(o.getClass().getTypeName().equals("State")) {
+        if(o==null) return false;
+        if(this==o) return true;
+        if(o instanceof State) {
             State aux = (State) o;
             return aux.dir == this.dir && aux.road == this.road && aux.pos == this.pos;
-        } else {
-            //TODO ajouter exception
         }
         return false;
     }

@@ -1,10 +1,7 @@
 package application.roadNetwork;
 
 import application.app.Application;
-import application.exceptions.JunctionException;
-import application.exceptions.RoadNotFoundException;
-import application.exceptions.SemaphoreNotFoundException;
-import application.exceptions.SensorNotFoundException;
+import application.exceptions.*;
 
 import java.util.ArrayList;
 
@@ -80,11 +77,11 @@ public class RoadElement {
         vehicles.add(v);
     }
 
-    public void removeVehicle(Vehicle v) {
+    public void removeVehicle(Vehicle v) throws VehicleNotFoundException {
         if(this.sensors.contains(v)) {
             this.sensors.remove(v);
         } else {
-            //TODO ajouter une exception pour les voitures non trouvées
+            throw new VehicleNotFoundException("Cannot find the vehicle to remove.");
         }
     }
 
@@ -92,10 +89,17 @@ public class RoadElement {
         for (Vehicle vehicle : this.vehicles) {
             vehicle.checkPos();
             System.out.println(vehicle.toString());
+        }
+        for(Vehicle vehicle : this.vehicles) {
             for(Vehicle v : this.vehicles) {
-                if(vehicle.getCurrState().equals(v.getCurrState())) {
-                    //TODO gestion de collision
+                if(vehicle.getId()!=v.getId() && vehicle.getCurrState().equals(v.getCurrState())) {
+                    System.out.println("COLLISION :");
+                    System.out.print("La voiture d'ID n°" + vehicle.getId() + " sur la route d'ID n°" + vehicle.getCurrState().getRoad());
+                    System.out.print(" est entrée en collision avec ");
+                    System.out.print(" la voiture d'ID n°" + v.getId() + " sur la route d'ID n°" + v.getCurrState().getRoad());
+
                 }
+                else System.out.println(vehicle.toString());
             }
         }
 
