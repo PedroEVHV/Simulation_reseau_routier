@@ -89,13 +89,17 @@ public class RoadElement {
     }
 
     public void moveVehicles() {
-        for(int i = 0; i < this.vehicles.size(); i++) {
-            vehicles.get(i).checkPos();
-            System.out.println(vehicles.get(i).toString());
-            if( true /*TODO condition de collision*/) {
-                //TODO gestion de la collision
+        for (Vehicle vehicle : this.vehicles) {
+            vehicle.checkPos();
+            System.out.println(vehicle.toString());
+            for(Vehicle v : this.vehicles) {
+                if(vehicle.getCurrState().equals(v.getCurrState())) {
+                    //TODO gestion de collision
+                }
             }
         }
+
+
     }
 
 

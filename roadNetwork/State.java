@@ -28,6 +28,19 @@ public class State {
         this.dir = d;
     }
 
+    //Methods
+
+    @Override
+    public boolean equals(Object o) {
+        if(o.getClass().getTypeName().equals("State")) {
+            State aux = (State) o;
+            return aux.dir == this.dir && aux.road == this.road && aux.pos == this.pos;
+        } else {
+            //TODO ajouter exception
+        }
+        return false;
+    }
+
 
     //Getters and Setters
 
