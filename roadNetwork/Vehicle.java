@@ -36,7 +36,7 @@ public class Vehicle {
     /**
      * Changes position on current road element. Does not change road elements, that is implemented in checkPos().
      */
-    public void move() {
+    protected void move() {
         this.getCurrState().setPos(this.getCurrState().getSpeed() + this.getCurrState().getPos());
     }
 
@@ -46,7 +46,7 @@ public class Vehicle {
      * if the vehicle is allowed to move due to traffic lights, etc...
      * If all criteria are met, it will call the move function.
      */
-    public void checkPos() {
+    protected void checkPos() {
 
         Random rs = new Random();
 

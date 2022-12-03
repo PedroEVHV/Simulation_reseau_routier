@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Application {
     public static int idCounter = 0;
     public static int time = 0;
-    public static ArrayList<Vehicle> vehicles;
 
 
     public static void main(String[] args) throws JunctionException {
@@ -24,16 +23,12 @@ public class Application {
 
         r2.addSemaphore(new SpeedSign(r2, true, 2));
 
+        r2.addVehicle(new Vehicle(r2, 0, 2, true));
 
-        vehicles = new ArrayList<>();
-        //vehicles.add(new Vehicle(new State(r1, -1, 2) ));
-        //vehicles.add(new Vehicle(new State(r7, 1, 2) ));
-        vehicles.add(new Vehicle(new State(r1, 0, 6, true) ));
 
         while (time < 100) {
-            for(int i = 0; i < vehicles.size(); i++) {
-                vehicles.get(i).checkPos();
-                System.out.println(vehicles.get(i).toString());
+            for(int i = 0; i < RoadElement.getRoadElements().size(); i++) {
+                RoadElement.getRoadElements().get(i).moveVehicles();
             }
 
             time++;

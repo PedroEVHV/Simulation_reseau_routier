@@ -16,6 +16,9 @@ public class RoadElement {
     private int speedLimit;
     private ArrayList<Semaphore> semaphores;
     private ArrayList<Sensor> sensors;
+    private ArrayList<Vehicle> vehicles;
+
+    protected static ArrayList<RoadElement> roadElements = new ArrayList<>();
 
 
     //Constructors
@@ -42,6 +45,8 @@ public class RoadElement {
         b.addRoad(this);
         this.semaphores = new ArrayList<Semaphore>();
         this.sensors = new ArrayList<Sensor>();
+        this.vehicles = new ArrayList<>();
+        roadElements.add(this);
     }
 
 
@@ -68,6 +73,28 @@ public class RoadElement {
             this.sensors.remove(s);
         } else {
             throw new SensorNotFoundException("Sensor not found !");
+        }
+    }
+
+    public void addVehicle(Vehicle v) {
+        vehicles.add(v);
+    }
+
+    public void removeVehicle(Vehicle v) {
+        if(this.sensors.contains(v)) {
+            this.sensors.remove(v);
+        } else {
+            //TODO ajouter une exception pour les voitures non trouvées
+        }
+    }
+
+    public void moveVehicles() {
+        for(int i = 0; i < this.vehicles.size(); i++) {
+            vehicles.get(i).checkPos();
+            System.out.println(vehicles.get(i).toString());
+            if( true /*TODO condition de collision*/) {
+                //TODO gestion de la collision
+            }
         }
     }
 
@@ -104,6 +131,14 @@ public class RoadElement {
 
     public ArrayList<Sensor> getSensors() {
         return sensors;
+    }
+
+    public static ArrayList<RoadElement> getRoadElements() {
+        return roadElements;
+    }
+
+    public ArrayList<Vehicle> getVehicles() {
+        return vehicles;
     }
 
     public void setJunctionA(Junction junctionA) throws JunctionException {
