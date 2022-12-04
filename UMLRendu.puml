@@ -124,9 +124,9 @@ Vehicle -- State : current state <
 
 
 InteractInterface -- Semaphore : interact() <
-InteractInterface -- Vehicle : interact() >
+
 RegulateInterface -- Sensor : regulate() <
-RegulateInterface -- Semaphore : regulate() >
+
 
 
 
