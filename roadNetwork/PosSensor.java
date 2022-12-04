@@ -18,9 +18,11 @@ public class PosSensor extends Sensor {
         regulateInterface = () -> {
             for(Vehicle v: this.getRoad().getVehicles()) {
                 if(v.getCurrState().getPos() == pos) {
-                    for(int i = 0; i < this.getTrafficLights().size(); i++) {
-                        if(this.getTrafficLights().get(i).getClass().getTypeName().equals("TriColor") && !Objects.equals(this.getTrafficLights().get(i).getColor(), "orange")) {
-                            this.getTrafficLights().get(i).setColor("rouge");
+                    for(TrafficLight t: getTrafficLights()) {
+                        if(t.getRoad() == this.getRoad()) {
+                            t.setColor("green");
+                        } else {
+                            t.setColor("red");
                         }
                     }
                 }
