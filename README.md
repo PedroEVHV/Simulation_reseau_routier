@@ -34,4 +34,8 @@ Les interfaces graphiques sont interdites: consacrez-vous à l'essentiel! Le ré
 
 # 2) Conventions utilisées et situation exemple
 
+Voici un scénario de test schématisé:
 ![Alt text](Map_Reseau_Routier.png)
+
+Le simulateur suit le diagramme de classes suivant:
+![Alt_text](UMLRendu.png)
