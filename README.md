@@ -38,4 +38,4 @@ Voici un scénario de test schématisé:
 ![Alt text](Map_Reseau_Routier.png)
 
 Le simulateur suit le diagramme de classes suivant:
-
+![Alt text](UMLRendu.png)
