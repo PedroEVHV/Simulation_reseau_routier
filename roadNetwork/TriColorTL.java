@@ -16,6 +16,8 @@ public class TriColorTL extends TrafficLight{
                 v.getCurrState().setSpeed(v.getCurrState().getSpeed()/2);
             } else if (this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {
                 v.getCurrState().setSpeed(0);
+            } else if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "green")) {
+                v.getCurrState().setSpeed(v.getCurrState().getRoad().getSpeedLimit());
             }
         };
     }
@@ -27,6 +29,8 @@ public class TriColorTL extends TrafficLight{
                 v.getCurrState().setSpeed(v.getCurrState().getSpeed()/2);
             } else if (this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {
                 v.getCurrState().setSpeed(0);
+            } else if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "green")) {
+                v.getCurrState().setSpeed(v.getCurrState().getRoad().getSpeedLimit());
             }
         };
     }
@@ -38,6 +42,8 @@ public class TriColorTL extends TrafficLight{
                 v.getCurrState().setSpeed(v.getCurrState().getSpeed()/2);
             } else if (this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {
                 v.getCurrState().setSpeed(0);
+            } else if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "green")) {
+                v.getCurrState().setSpeed(v.getCurrState().getRoad().getSpeedLimit());
             }
         };
     }
@@ -49,6 +55,8 @@ public class TriColorTL extends TrafficLight{
                 v.getCurrState().setSpeed(v.getCurrState().getSpeed()/2);
             } else if (this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "red")) {
                 v.getCurrState().setSpeed(0);
+            } else if(this.getDir() == v.getCurrState().getDir() && v.getCurrState().getPos() > 1 && Objects.equals(this.getColor(), "green")) {
+                v.getCurrState().setSpeed(v.getCurrState().getRoad().getSpeedLimit());
             }
         };
     }
