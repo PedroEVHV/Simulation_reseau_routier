@@ -114,9 +114,9 @@ public class RoadElement {
             for(Vehicle v : this.vehicles) {
                 if(vehicle.getId()!=v.getId() && vehicle.getCurrState().equals(v.getCurrState())) {
                     System.out.println("COLLISION :");
-                    System.out.print("La voiture d'ID n°" + vehicle.getId() + " sur la route d'ID n°" + vehicle.getCurrState().getRoad());
-                    System.out.print(" est entrée en collision avec ");
-                    System.out.print(" la voiture d'ID n°" + v.getId() + " sur la route d'ID n°" + v.getCurrState().getRoad());
+                    System.out.print("La voiture d'ID " + vehicle.getId() + " sur la route d'ID " + vehicle.getCurrState().getRoad());
+                    System.out.print(" est entree en collision avec ");
+                    System.out.print(" la voiture d'ID " + v.getId() + " sur la route d'ID " + v.getCurrState().getRoad());
 
                 }
                 else System.out.println(vehicle.toString());

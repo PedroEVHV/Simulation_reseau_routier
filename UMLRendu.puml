@@ -116,16 +116,16 @@ Sensor <|-- PosSensor
 TrafficLight <|-- TriColorTL
 TrafficLight <|-- BiColorTL
 
-RoadElement -- Sensor : placed on <
-RoadElement -- Semaphore : placed on <
-RoadElement -- Vehicle : drives on <
-RoadElement -- Junction : linked on edge <
-Vehicle -- State : current state <
+RoadElement "1"--"*" Sensor : placed on <
+RoadElement "1" -- "*" Semaphore : placed on <
+RoadElement "1" -- "*" Vehicle : drives on <
+RoadElement "*"-- "2" Junction : linked on edge <
+Vehicle "1" -- "1"State : current state <
 
 
-InteractInterface -- Semaphore : interact() <
+InteractInterface "*" -- "1" Semaphore : interact() <
 
-RegulateInterface -- Sensor : regulate() <
+RegulateInterface "*" -- "1" Sensor : regulate() <
 
 
 
