@@ -123,9 +123,9 @@ RoadElement "*"-- "2" Junction : linked on edge <
 Vehicle "1" -- "1"State : current state <
 
 
-InteractInterface "*" -- "1" Semaphore : interact() <
+InteractInterface "1" --  Semaphore : interact() <
 
-RegulateInterface "*" -- "1" Sensor : regulate() <
+RegulateInterface "1" --  Sensor : regulate() <
 
 
 
