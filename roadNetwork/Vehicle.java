@@ -9,25 +9,27 @@ public class Vehicle {
     private final int id;
     private State currState;
 
+    public static int idCounter = 0;
+
     //Constructors
 
     public Vehicle() {
-        this.id = Application.idCounter;
-        Application.idCounter++;
+        this.id = idCounter;
+        idCounter++;
 
         this.currState = new State();
     }
 
     public Vehicle(State s) {
-        this.id = Application.idCounter;
-        Application.idCounter++;
+        this.id = idCounter;
+        idCounter++;
 
         this.currState = new State(s.getRoad(), s.getPos(), s.getSpeed(), s.getDir());
     }
 
     public Vehicle(RoadElement r, int pos, int speed, boolean dir) {
-        this.id = Application.idCounter;
-        Application.idCounter++;
+        this.id = idCounter;
+        idCounter++;
 
         this.currState = new State(r, pos, speed, dir);
     }

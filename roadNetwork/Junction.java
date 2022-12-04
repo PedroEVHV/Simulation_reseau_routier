@@ -9,12 +9,13 @@ public class Junction {
     private final int id;
     private int nbLinks;
     private ArrayList<RoadElement> linkedElems;
+    public static int idCounter = 0;
 
 
     //Constructors
 
     public Junction() {
-        this.id = Application.idCounter++;
+        this.id = idCounter++;
         this.nbLinks = 0;
         this.linkedElems = new ArrayList<RoadElement>();
     }

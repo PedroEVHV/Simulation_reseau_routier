@@ -8,7 +8,7 @@ import application.exceptions.JunctionException;
 import java.util.ArrayList;
 
 public class Application {
-    public static int idCounter = 0;
+
     public static int time = 0;
 
 

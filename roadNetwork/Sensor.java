@@ -14,6 +14,8 @@ public abstract class Sensor {
 
     protected RegulateInterface regulateInterface;
 
+    public static int idCounter = 0;
+
 
     //Constructors
 
@@ -27,7 +29,7 @@ public abstract class Sensor {
     }
 
     public Sensor(RoadElement r, int p, boolean direction, ArrayList<TrafficLight> s) {
-        this.id = Application.idCounter++;
+        this.id = idCounter++;
         this.road = r;
         this.pos = p;
         this.direction = direction;

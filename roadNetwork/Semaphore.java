@@ -8,6 +8,8 @@ public abstract class Semaphore {
     private boolean direction; // True when it is seen by cars going towards JunctionA, and vice-versa.
     protected InteractInterface interactInterface;
 
+    public static int idCounter = 0;
+
 
     //Constructors
 
@@ -16,7 +18,7 @@ public abstract class Semaphore {
     }
 
     public Semaphore(RoadElement road, boolean direction) {
-        this.id = Application.idCounter++;
+        this.id = idCounter++;
         this.road = road;
         this.direction = direction;
         road.addSemaphore(this);

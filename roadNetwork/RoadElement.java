@@ -16,6 +16,7 @@ public class RoadElement {
     private ArrayList<Vehicle> vehicles;
 
     protected static ArrayList<RoadElement> roadElements = new ArrayList<>();
+    public static int idCounter = 0;
 
 
     //Constructors
@@ -33,7 +34,7 @@ public class RoadElement {
     }
 
     public RoadElement(int size, int speedLimit, Junction a, Junction b) {
-        this.id = Application.idCounter++;
+        this.id = idCounter++;
         this.size = size;
         this.speedLimit = speedLimit;
         this.junctionA = a;
