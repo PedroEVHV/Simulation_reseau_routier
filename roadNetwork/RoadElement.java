@@ -91,11 +91,7 @@ public class RoadElement {
     public void moveVehicles() throws VehicleNotFoundException {
 
         for(Sensor s: sensors) {
-            for(Vehicle v: vehicles) {
-                if(s.getPos() == v.getCurrState().getPos() && s.getDirection() == v.getCurrState().getDir()) {
-                    s.regulateInterface.regulate();
-                }
-            }
+            s.regulateInterface.regulate();
         }
 
 
