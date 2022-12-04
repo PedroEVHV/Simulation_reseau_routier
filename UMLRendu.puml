@@ -1,0 +1,135 @@
+@startuml
+
+
+
+
+class Application {
+    + int time
+    - {static} main(String[] args)
+}
+
+class RoadElement {
+    - int id
+    - int size
+    - int speedLimit
+    # {static} ArrayList<RoadElement> roadElements
+    - {static} int idCounter
+
+    + addSemaphore(Semaphore s)
+    + removeSemaphore(Semaphore s)
+    + addSensor(Semaphore s)
+    + removeSensor(Sensor s)
+    + addVehicle(Vehicle v)
+    + removeVehicle(Vehicle v)
+    + void moveVehicles()
+    + toString()
+}
+
+class Junction {
+    - int id
+    - int nbLinks
+
+    - {static} int idCounter
+
+    + addRoad(RoadElement r)
+    + removeRoad(RoadElement r)
+    + toString()
+}
+
+class Semaphore {
+    - int id
+
+    - boolean direction
+    # InteractInterface interactInterface
+    - {static} idCounter
+
+}
+
+class TrafficLight {
+    - String color
+    # {abstract} nextLight()
+}
+
+class TriColorTL {
+    + nextLight()
+    + toString()
+}
+
+class BiColorTL {
+    + nextLight()
+    + toString()
+}
+
+class SpeedSign {
+    - int speed
+}
+
+class Sensor {
+    - int id
+
+    - int pos
+    - boolean direction
+
+    # RegulateInterface regulateInterface
+    - {static} int idCounter
+}
+
+class SpeedSensor {
+    - int speed
+    + toString()
+}
+
+class PosSensor {
+    - int pos
+    + toString()
+}
+
+class Vehicle {
+    - int id
+    - {static} int id
+
+    + move()
+    + checkPos()
+    + toString()
+}
+interface RegulateInterface {
+    void regulate()
+}
+
+interface InteractInterface {
+    void interact(Vehicle vehicle)
+}
+class State {
+    - int pos
+    - int speed
+    - boolean dir
+
+    + equals(Object o)
+    +toString()
+}
+
+
+Semaphore <|-- TrafficLight
+Semaphore <|-- SpeedSign
+Sensor <|-- SpeedSensor
+Sensor <|-- PosSensor
+TrafficLight <|-- TriColorTL
+TrafficLight <|-- BiColorTL
+
+RoadElement -- Sensor : placed on <
+RoadElement -- Semaphore : placed on <
+RoadElement -- Vehicle : drives on <
+RoadElement -- Junction : linked on edge <
+Vehicle -- State : current state <
+
+
+InteractInterface -- Semaphore : interact() <
+InteractInterface -- Vehicle : interact() >
+RegulateInterface -- Sensor : regulate() <
+RegulateInterface -- Semaphore : regulate() >
+
+
+
+
+
+@enduml
