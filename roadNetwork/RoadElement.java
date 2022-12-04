@@ -95,17 +95,20 @@ public class RoadElement {
         }
 
 
-        Vehicle toBeRemoved = null;
+        ArrayList<Vehicle> toBeRemoved = new ArrayList<>();
+        ArrayList<Vehicle> toBeAdded = new ArrayList<>();
         for (Vehicle vehicle : this.vehicles) {
             if(vehicle.checkPos()) {
-                vehicle.getCurrState().getRoad().addVehicle(vehicle);
-                toBeRemoved = vehicle;
+                toBeAdded.add(vehicle);
+                toBeRemoved.add(vehicle);
             }
             //System.out.println(vehicle.toString());
         }
-        if(toBeRemoved != null) {
-            this.removeVehicle(toBeRemoved);
+        for(Vehicle v: toBeRemoved) {
+            this.removeVehicle(v);
+            v.getCurrState().getRoad().addVehicle(v);
         }
+
 
         for(Vehicle vehicle : this.vehicles) {
             for(Vehicle v : this.vehicles) {

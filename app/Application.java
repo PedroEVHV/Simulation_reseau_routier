@@ -75,7 +75,7 @@ public class Application {
 
         System.out.println("____________________________________________________________");
 
-        while (time < 100) {
+        while (time < 20) {
             for(int i = 0; i < RoadElement.getRoadElements().size(); i++) {
                 RoadElement.getRoadElements().get(i).moveVehicles();
             }
