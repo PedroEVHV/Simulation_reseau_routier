@@ -32,5 +32,5 @@ Modéliser et programmer les éléments présentés ci-dessus de manière à pou
 
 Les interfaces graphiques sont interdites: consacrez-vous à l'essentiel! Le réseau routier est défini au lancement de l'éxecution et ne peut pas être modifié après coup. Il est construit par programme: il n,est pas lu dans un fichier ou construit interactivement. Il est recommandé de pouvoir construire facilement des portions de réseau sans être obligé de revenir aux éléments de base, par exemple pour construire facilement des carrefours à 3 routes avec tel type de régulation, etc. Vous pouvez ne pas modéliser des configurations de réseaux ou de circulation trop complexes à modéliser (en les signalant dans le dossier remis).
 
-#2) Conventions utilisées et situation exemple
+# 2) Conventions utilisées et situation exemple
 
