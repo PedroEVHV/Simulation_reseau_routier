@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class SpeedSensor extends Sensor{
 
-    private int vehicleID;
+    //private int vehicleID;
     private int speed;
 
     //Constructors
@@ -14,7 +14,7 @@ public class SpeedSensor extends Sensor{
     public SpeedSensor(RoadElement r) {
         super(r);
         this.speed = -1;
-        this.vehicleID = -1;
+        //this.vehicleID = -1;
 
         regulateInterface = () -> {
             for(Vehicle v: this.getRoad().getVehicles()) {
@@ -35,7 +35,7 @@ public class SpeedSensor extends Sensor{
     public SpeedSensor(RoadElement r, int p, Boolean direction) {
         super(r, p, direction);
         this.speed = -1;
-        this.vehicleID = -1;
+        //this.vehicleID = -1;
 
         regulateInterface = () -> {
             for(Vehicle v: this.getRoad().getVehicles()) {
@@ -53,7 +53,7 @@ public class SpeedSensor extends Sensor{
     public SpeedSensor(RoadElement r, int p, Boolean direction, ArrayList<TrafficLight> trafficLights) {
         super(r, p, direction, trafficLights);
         this.speed = -1;
-        this.vehicleID = -1;
+        //this.vehicleID = -1;
 
         regulateInterface = () -> {
             for(Vehicle v: this.getRoad().getVehicles()) {
@@ -79,6 +79,7 @@ public class SpeedSensor extends Sensor{
         this.speed = speed;
     }
 
+    /*
     public int getVehicleID() {
         return this.vehicleID;
     }
@@ -86,7 +87,7 @@ public class SpeedSensor extends Sensor{
     void setVehicleID(int vehicleID) {
         this.vehicleID = vehicleID;
     }
-
+*/
     //Display
 
     @Override
