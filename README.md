@@ -34,3 +34,4 @@ Les interfaces graphiques sont interdites: consacrez-vous à l'essentiel! Le ré
 
 # 2) Conventions utilisées et situation exemple
 
+![Alt text](Map_reseau_routier.png)
