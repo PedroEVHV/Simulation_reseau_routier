@@ -16,7 +16,7 @@ public class RoadElement {
     private ArrayList<Vehicle> vehicles;
 
     protected static ArrayList<RoadElement> roadElements = new ArrayList<>();
-    public static int idCounter = 0;
+    private static int idCounter = 0;
 
 
     //Constructors

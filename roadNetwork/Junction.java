@@ -9,7 +9,7 @@ public class Junction {
     private final int id;
     private int nbLinks;
     private ArrayList<RoadElement> linkedElems;
-    public static int idCounter = 0;
+    private static int idCounter = 0;
 
 
     //Constructors

@@ -9,7 +9,7 @@ public class Vehicle {
     private final int id;
     private State currState;
 
-    public static int idCounter = 0;
+    private static int idCounter = 0;
 
     //Constructors
 

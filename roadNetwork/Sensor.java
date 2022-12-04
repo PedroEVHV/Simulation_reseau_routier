@@ -14,7 +14,7 @@ public abstract class Sensor {
 
     protected RegulateInterface regulateInterface;
 
-    public static int idCounter = 0;
+    private static int idCounter = 0;
 
 
     //Constructors

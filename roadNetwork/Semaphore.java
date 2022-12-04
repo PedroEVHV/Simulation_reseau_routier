@@ -8,7 +8,7 @@ public abstract class Semaphore {
     private boolean direction; // True when it is seen by cars going towards JunctionA, and vice-versa.
     protected InteractInterface interactInterface;
 
-    public static int idCounter = 0;
+    private static int idCounter = 0;
 
 
     //Constructors
